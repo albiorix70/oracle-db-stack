@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  oracle-db:
+    container_name: oracle-db
+    build:
+      context: ./oracle-xe
+      dockerfile: Dockerfile.xe
+    networks:
+      - oracle_network
+    env_file:
+      - ./stack.env
+    volumes:
+      - ./db-data:/opt/oracle/oradata
+    ports:
+      - 1521:1521
+      - 5500:5500
+    restart: unless-stopped
+networks:
+  oracle_network:

@@ -16,5 +16,19 @@ services:
       - 1521:1521
       - 5500:5500
     restart: unless-stopped
+  tomcat:
+    container_name: tomcat
+    image: tomcat:latest
+    networks:
+      - oracle_network
+    env_file:
+      - ./stack.env
+    volumes:
+      - ./tomcat-data:/usr/local/tomcat/webapps
+    ports:
+      - 8080:8080
+    restart: unless-stopped
+    depends_on:
+      - oracle-db
 networks:
   oracle_network:

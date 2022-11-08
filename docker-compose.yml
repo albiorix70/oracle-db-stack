@@ -16,8 +16,8 @@ services:
       - 1521:1521
       - 5500:5500
     restart: unless-stopped
-  tomcat:
-    container_name: tomcat
+  apex-tomcat:
+    container_name: apex-tomcat
     image: tomcat:latest
     networks:
       - oracle_network

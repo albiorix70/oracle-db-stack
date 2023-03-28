@@ -6,5 +6,5 @@
 oracle-data/*
 oracle-data/*.*
 
-# ignore enviromnent files with passwords
-enviromnent/*.env
+# ignore environment files with passwords
+environment/*.env

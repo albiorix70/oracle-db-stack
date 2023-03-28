@@ -1,0 +1,7 @@
+# ignore all zip files
+*.zip
+*/*.zip
+
+# all oracle database files
+oracle-data/*
+oracle-data/*.*

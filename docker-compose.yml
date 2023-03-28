@@ -1,0 +1,36 @@
+version: "3.8"
+
+services: 
+  oracle-xe:
+    container_name: db
+    image: gvenzl/oracle-xe:latest
+    ports:
+      - "1521:1521"
+    env_file: 
+      - "./environment/oracle.env"
+    volumes: 
+      - "./oracle-data/data:/opt/oracle/oradata"
+    networks: 
+      oracle_net:
+        aliases:
+          - xe
+          - db
+  ords:
+    container_name: ords
+    build:
+      context: ./ords
+    ports:
+      - "8443:8443"
+    volumes: 
+      - "./oracle-data/config:/home/oracle/config"
+    env_file: 
+      - "./environment/oracle.env"
+    networks: 
+      oracle_net:
+        aliases:
+          - ords
+    depends_on: 
+      - oracle-xe
+networks: 
+  oracle_net:
+    name: oracle_net

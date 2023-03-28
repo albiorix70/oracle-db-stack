@@ -8,9 +8,18 @@
 #
 # REQUIRED FILES TO BUILD THIS IMAGE
 # ----------------------------------
-# (1) ords.3.0.10.165.06.53.zip
-#     Download Oracle Rest Data Services from
-#     http://www.oracle.com/technetwork/developer-tools/rest-data-services/downloads/index.html
+# DEPRECATED
+# >(1) ords.3.0.10.165.06.53.zip
+# >    Download Oracle Rest Data Services from
+# >    http://www.oracle.com/technetwork/developer-tools/rest-data-services/downloads/index.html
+# >
+# This Build script use ORDS 22 and above für running. If the required archives 
+# not in the same directory as this Dockerfile, then the script tries to download
+# the required files
+# Use
+#    https://download.oracle.com/otn_software/java/ords/ords-latest.zip
+#    https://download.oracle.com/otn_software/apex/apex-latest.zip 
+# or put the zips in this directory
 #
 # HOW TO BUILD THIS IMAGE
 # -----------------------

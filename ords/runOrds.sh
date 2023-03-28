@@ -1,12 +1,8 @@
 #!/bin/bash
 # 
-# Since: June, 2017
-# Author: gerald.venzl@oracle.com
-# Description: Setup and runs Oracle Rest Data Services.
-# 
-# DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-# 
-# Copyright (c) 2014-2022 Oracle and/or its affiliates. All rights reserved.
+# The Idea comes from the Oracle's git repository for 
+# installing and starting the ORDS. But the oracle script don't
+# run with ORDS 22.1 and above, so i create a new config script
 #
 # sascha@methusalem.net
 #   runOrds.sh config for installation ORDS 22.1 and above

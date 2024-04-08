@@ -5,6 +5,9 @@
 # all oracle database files
 oracle-data/*
 oracle-data/*.*
+ords_config/*
+ords_config/*.*
 
 # ignore environment files with passwords
 environment/*.env
+environment/*.txt

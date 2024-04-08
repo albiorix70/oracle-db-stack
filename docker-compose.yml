@@ -3,7 +3,7 @@ version: "3.8"
 services: 
   oracle-xe:
     container_name: db
-    image: gvenzl/oracle-xe:latest
+    image: gvenzl/oracle-free:latest
     ports:
       - "1521:1521"
     env_file: 
@@ -17,12 +17,12 @@ services:
           - db
   ords:
     container_name: ords
-    build:
-      context: ./ords
+    image: container-registry.oracle.com/database/ords:latest
     ports:
-      - "8443:8443"
+      - "8181:8181"
     volumes: 
-      - "./oracle-data/config:/home/oracle/config"
+      - "./environment/:/opt/oracle/variables/"
+      - "./ords_config/:/etc/ords/config/"
     env_file: 
       - "./environment/oracle.env"
     networks: 

@@ -1,7 +1,6 @@
-version: "3.8"
-
 services: 
   oracle-xe:
+    privileged: true
     container_name: db
     image: gvenzl/oracle-free:latest
     ports:
@@ -9,7 +8,7 @@ services:
     env_file: 
       - "./environment/oracle.env"
     volumes: 
-      - "./oracle-data/data:/opt/oracle/oradata"
+      - "oracle-data:/opt/oracle/oradata"
     networks: 
       oracle_net:
         aliases:
@@ -17,14 +16,14 @@ services:
           - db
   ords:
     container_name: ords
-    image: container-registry.oracle.com/database/ords:latest
+    image: container-registry.oracle.com/database/ords-developer:latest
     ports:
       - "8181:8181"
-    volumes: 
-      - "./environment/:/opt/oracle/variables/"
-      - "./ords_config/:/etc/ords/config/"
     env_file: 
       - "./environment/oracle.env"
+    volumes: 
+      - "./environment/:/opt/oracle/variables/"
+      - "ords_config:/etc/ords/config/"
     networks: 
       oracle_net:
         aliases:
@@ -34,3 +33,10 @@ services:
 networks: 
   oracle_net:
     name: oracle_net
+volumes:
+  oracle-data:
+    driver: local
+  ords_config:
+    driver: local
+
+

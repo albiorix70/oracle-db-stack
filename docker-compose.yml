@@ -14,6 +14,14 @@ services:
         aliases:
           - xe
           - db
+    healthcheck:          
+        test: ["CMD", "healthcheck.sh"]
+        interval: 10s
+        timeout: 5s
+        retries: 10
+        start_period: 5s
+        start_interval: 5s
+          
   ords:
     container_name: ords
     image: container-registry.oracle.com/database/ords-developer:latest
